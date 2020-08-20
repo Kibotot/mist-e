@@ -1,3 +1,18 @@
+### Mist-e (mi-stee as adjective "misty") is a weather application.
+When first loaded it requiers a name of a city and it returns:
+    - temperature in celsius, 
+    - "feel-like" temperature in celsius,
+    - humidity (%) and
+    - wind speed in km/h
+
+This was built in React using React hooks (useState) and for data I used came from an API from OpenWeatherMap.
+You can see more at: https://openweathermap.org/api
+
+This is not a comercial product, it's only for personal use.
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
