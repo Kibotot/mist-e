@@ -1,5 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
 
+$breakpoints: (
+  "tablet": 768px,
+  "largeTablet": 1024px,
+  "laptop": 1366px,
+  "desktop": 1920px,
+  "largeDesktop": 2560px,
+  "XLDesktop": 3840px,
+);
+
+@mixin tablet {
+  @media (min-width: map-get($breakpoints, "tablet" )) {
+    @content;
+  }
+}
+@mixin largeTablet {
+  @media (min-width: map-get($breakpoints, "tablet" )) and (max-width: map-get($breakpoints, "largeTablet" )) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: map-get($breakpoints, "laptop" )) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: map-get($breakpoints, "desktop" )) {
+    @content;
+  }
+}
+@mixin largeDesktop {
+  @media (min-width: map-get($breakpoints, "largeDesktop" )) {
+    @content;
+  }
+}
+@mixin XLDesktop {
+  @media (min-width: map-get($breakpoints, "XLDesktop" )) {
+    @content;
+  }
+}
 @mixin flex($align, $justify, $direction: row) {
   display: flex;
   align-items: $align;
@@ -19,17 +58,44 @@ html {
   body {
     font-family: "Poppins", sans-serif;
   }
+  @include largeTablet {
+    font-size: 90%;
+  }
+  @include largeDesktop() {
+    font-size: 90%;
+  }
+  @include XLDesktop() {
+    font-size: 130%;
+  }
 }
 
 .App {
   background-image: url(./img/cold-bg.jpg);
   background-position: bottom;
   background-size: cover;
-  transition: 0.3s ease-in-out all;
+  transition: 0.6s ease-in-out all;
+  @include largeTablet {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  }
+  @include laptop {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  }
+  @include desktop {
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  }
 }
 
 .App.warm {
   background-image: url(./img/warm-bg.jpg);
+  @include largeTablet {
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  }
+  @include laptop {
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  }
+  @include desktop {
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  }
 }
 main {
   min-height: 100vh;
@@ -43,6 +109,28 @@ main {
   .search-box {
     width: 100%;
     margin-bottom: 5rem;
+    @include tablet {
+      position: relative;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+    }
+    @include largeTablet {
+      position: relative;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55%;
+    }
+    @include laptop {
+      position: relative;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+    }
+
     .search-bar {
       width: 100%;
       padding: 1.2rem;
@@ -63,6 +151,14 @@ main {
       &:focus {
         background: rgba(255, 255, 255, 0.7);
       }
+      @include largeTablet {
+        padding: 1.4rem;
+        font-size: 1.6rem;
+      }
+      @include largeDesktop() {
+        padding: 2rem;
+        font-size: 2.4rem;
+      }
     }
   }
   .location-box {
@@ -72,6 +168,9 @@ main {
     text-align: center;
     .location {
       font-size: 2.4rem;
+    }
+    @include largeDesktop {
+      margin-top: 4rem;
     }
   }
   .weather-box {
@@ -87,6 +186,29 @@ main {
       font-size: 6.2rem;
       box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 5px 1rem rgba(0, 0, 0, 0.2);
+      @include largeDesktop {
+        margin: 5rem auto;
+      }
+    }
+    @include laptop {
+      .weather {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 40%;
+        margin: 2rem auto;
+      }
+    }
+    @include desktop {
+      .weather {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 40%;
+        margin: 2rem auto;
+      }
     }
     .weather h2 {
       font-size: 1.8rem;
