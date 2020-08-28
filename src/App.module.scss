@@ -74,6 +74,7 @@ html {
   background-position: bottom;
   background-size: cover;
   transition: 0.6s ease-in-out all;
+
   @include largeTablet {
     background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
   }
@@ -97,7 +98,8 @@ html {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
   }
 }
-main {
+
+.mainSection {
   min-height: 100vh;
   padding: 3rem;
   background-image: linear-gradient(
@@ -106,7 +108,7 @@ main {
     rgba(0, 0, 0, 0.75)
   );
 
-  .search-box {
+  .searchBox {
     width: 100%;
     margin-bottom: 5rem;
     @include tablet {
@@ -131,18 +133,43 @@ main {
       width: 40%;
     }
 
-    .search-bar {
+    .searchBar {
       width: 100%;
-      padding: 1.2rem;
-      display: block;
+      padding-left: 2rem;
+      // display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      appearance: none;
-      outline: none;
-      border: none;
-      background: none;
+      .searchInput {
+        appearance: none;
+        outline: none;
+        border: none;
+        background: none;
+        width: 80%;
+        height: 4rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        font-family: "Poppins";
+      }
+      .searchBarButton {
+        padding: 1.2rem;
+        border-radius: 50%;
+        border: none;
+        background: red;
+        color: white;
+        font-weight: bold;
+        font-size: 2rem;
+        transition: 0.4s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          background: white;
+          color: red;
+        }
+      }
 
       background: rgba(255, 255, 255, 0.5);
-      border-radius: 2rem 2rem 2rem 2rem;
+      border-radius: 5rem 5rem 5rem 5rem;
       box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
       box-shadow: 0px 5px 1rem rgba(0, 0, 0, 0.2);
 
@@ -161,7 +188,7 @@ main {
       }
     }
   }
-  .location-box {
+  .locationBox {
     min-height: 10vh;
     color: rgb(235, 235, 235);
     font-size: 2rem;
@@ -172,8 +199,15 @@ main {
     @include largeDesktop {
       margin-top: 4rem;
     }
+    .date {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
   }
-  .weather-box {
+  .weatherBox {
     text-align: center;
     color: white;
     font-weight: 600;
@@ -219,14 +253,27 @@ main {
 }
 
 .entryMessage {
-  min-height: 20vh;
+  min-height: 7vh;
   color: rgb(235, 235, 235);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  margin-bottom: 3rem;
   h1 {
     font-size: 2.4rem;
     text-align: center;
   }
+}
+
+.error {
+  min-height: 5vh;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
 }
